@@ -38,7 +38,8 @@ public class Contact {
 
     private String capitalizeFirstCharacter(String str){
         if (!str.isEmpty()){
-            return Character.toUpperCase(0) + str.substring(1);
+            //return Character.toUpperCase(str[0]) + str.substring(1);
+            return str.substring(0, 1).toUpperCase() + str.substring(1);
         }
         return str;
     }
