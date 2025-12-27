@@ -1,8 +1,9 @@
-package com.dev;
+package com.dev.model;
 
-public class Contact {
+public abstract class Contact {
     private String name;
     private String phone;
+    private ContactType type;
 
     public String getName() {
         return name;
@@ -19,23 +20,22 @@ public class Contact {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-    public void setPhone(String prefix, String phoneNumber){
-        this.phone = "0" + prefix + phoneNumber;
-    }
-    public Contact() {
+
+    public ContactType getType() {
+        return type;
     }
 
-    public Contact(String name, String phone) {
+    public Contact(String name, String phone, ContactType type) {
         this.name = capitalizeFirstCharacter(name);
         this.phone = phone;
+        this.type = type;
     }
 
     @Override
     public String toString() {
-        return "Contact{" +
+        return
                 "name='" + name + '\'' +
-                ", phone='" + phone + '\'' +
-                '}';
+                ", phone='" + phone + '\'' ;
     }
 
     private String capitalizeFirstCharacter(String str){

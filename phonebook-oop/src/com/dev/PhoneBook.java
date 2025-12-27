@@ -1,5 +1,9 @@
 package com.dev;
 
+import com.dev.model.BusinessContact;
+import com.dev.model.Contact;
+import com.dev.model.PersonalContact;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -43,18 +47,36 @@ public class PhoneBook {
     }
 
     private static void addNewContact() {
-        Contact contact = new Contact();
-        System.out.println("Please enter name:");
-        contact.setName(scanner.nextLine());
-        System.out.println("Please enter phone number:");
-        System.out.print("Enter prefix:");
-        String prefix = scanner.nextLine();
-        System.out.print("Enter phone:");
-        String phone = scanner.nextLine();
-        contact.setPhone(prefix, phone);
-        System.out.println(contact);
-        contacts.add(contact);
-        System.out.println("The new contact was added successfully.");
+        System.out.println("Please choose a contact type:");
+        System.out.println("1. Personal Contact");
+        System.out.println("2. Business Contact");
+        int contactType = scanner.nextInt();
+        scanner.nextLine();
+        if (contactType == 1){
+            System.out.println("Please enter name:");
+            String name = scanner.nextLine();
+            System.out.println("Please enter family:");
+            String family = scanner.nextLine();
+            System.out.println("Please enter phone:");
+            String phone = scanner.nextLine();
+            PersonalContact personalContact = new PersonalContact(name, phone);
+            personalContact.setFamily(family);
+            contacts.add(personalContact);
+            System.out.println("The new contact was added successfully");
+        }else if (contactType == 2){
+            System.out.println("Please enter name:");
+            String name = scanner.nextLine();
+            System.out.println("Please enter phone:");
+            String phone = scanner.nextLine();
+            System.out.println("Please enter fax:");
+            String fax = scanner.nextLine();
+            BusinessContact businessContact = new BusinessContact(name, phone);
+            businessContact.setFax(fax);
+            contacts.add(businessContact);
+            System.out.println("The new contact was added successfully");
+        }else {
+            System.out.println("Invalid input type.....");
+        }
     }
 
     private static void printMenu() {
