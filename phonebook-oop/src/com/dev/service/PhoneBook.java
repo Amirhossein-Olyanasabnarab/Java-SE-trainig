@@ -1,4 +1,4 @@
-package com.dev;
+package com.dev.service;
 
 import com.dev.model.BusinessContact;
 import com.dev.model.Contact;
@@ -13,7 +13,7 @@ public class PhoneBook {
     private static List<Contact> contacts = new ArrayList<>();
     private final static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public void run(){
         int choice;
         do {
             printMenu();
@@ -85,4 +85,5 @@ public class PhoneBook {
         System.out.println("1. Add new contact");
         System.out.println("2. Print all contacts");
     }
+
 }
