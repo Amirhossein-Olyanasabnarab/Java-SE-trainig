@@ -47,7 +47,11 @@ public class PhoneBook {
         System.out.println("Please enter name:");
         contact.setName(scanner.nextLine());
         System.out.println("Please enter phone number:");
-        contact.setPhone(scanner.nextLine());
+        System.out.print("Enter prefix:");
+        String prefix = scanner.nextLine();
+        System.out.print("Enter phone:");
+        String phone = scanner.nextLine();
+        contact.setPhone(prefix, phone);
         System.out.println(contact);
         contacts.add(contact);
         System.out.println("The new contact was added successfully.");
